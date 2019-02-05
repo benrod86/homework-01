@@ -32,69 +32,72 @@ v[1:15]
 v[c(2,4,6,8,10)]
 v <- 101:200
 v[seq(from = 1, to = 100, by = 2)]
+v <-100:1
+v[seq(from = 100, to = 1, by = -2)]
 
+# CHALLENGE 1 
 
+# create vector of the first line of gettysburg address 
+gettysburg <- "Four score and seven years ago our fathers brought forth on this continent a new nation, cinceived in Liberty, and dedicated to the proposition that all men are created equal."
 
-## CHALLENGE 1 ##
-# create vector of the first line of gettysburg address #
-gettysburg <- c("Four", "score", "and", "seven",
-                "years", "ago", "our", "fathers",
-                "brought", "forth", "on", "this",
-                "continent,", "a", "new", "nation,",
-                "conceived", "in", "Liberty,", "and",
-                "dedicated", "to", "the", "proposition",
-                "that", "all", "men", "are", "created",
-                "equal.")
-gettysburg
-# extract every third element #
-gettysburg[seq(from = 1, to = 30, by = 3)]
+# split into 1 word strings
+library(stringr)
+gettysburgsplit <- str_split(gettysburg, " ", simplify = T)
+gettysburgsplit
 
-# create vector that is every third element of gettysburg address first line #
-gettysburg3rd <- gettysburg[seq(from = 1, to = 30, by = 3)]
-gettysburg3rd
-# Remove punctuation from same vector #
-gettysburg3rdnopunctuation <- gsub("[[:punct:]]","",gettysburg[seq(from = 1, to = 30, by = 3)])
+# extract every third element 
+gettysburgsplit[seq(from = 1, to = 30, by = 3)]
+
+# create vector that is every third element of gettysburg address first line 
+gettysburgsplit3rd <- gettysburgsplit[seq(from = 1, to = 30, by = 3)]
+gettysburgsplit3rd
+
+# Remove punctuation from same vector 
+gettysburg3rdnopunctuation <- gsub("[[:punct:]]","",gettysburgsplit[seq(from = 1, to = 30, by = 3)])
 gettysburg3rdnopunctuation
 
-# Finish challenge 1 #
 
-m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = F)
-m
-x <- m[4,5]
-x
 
-# CHALLENGE 2 #
-# Part 1 #
+
+
+
+
+
+
+
+
+
+
+# CHALLENGE 2 
+# Part 1  - extract columns 2, 3, and 6 from matrix
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = F)
 x <- m[,c(2,3,6)]
 x
-# Part 2 #
+# Part 2 - extract rows 6 through 8 from matrix
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = F)
 x <- m[c(6:8),]
 x
-# Part 3 #
+# Part 3  - extract rows 2 through 6 of columns 2 through 9 from matrix
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = F)
 x <- m[c(2:6),c(2:9)]
 x
 
-# Finsh Cnallenge 2 #
+
 
 # CHALLENGE 3 #
 a <- array(400:1, dim = c(5,5,4,4))
 a[1,1,1,2]
-    # the value in the first row and first column
-    # of the first layer of the fourth block
+    # This pulls out the value in the first row and first column of the first layer of the fourth block
 a[2,3,2,]
-    # the values in the second row and third column
-    # of the second layer of the each block
+
+    #This pulls out the the values in the second row and third column of the second layer of the each block
 
 a[1:5,1:5,3,3]
-    # the values in the firstst to fifth row,
-    # and the first to fifth column,
-    # from the third layer of the third block.
-    # In other words the entire third layer of the third block
+    # This pulls out the values in the firstst to fifth row, and the first to fifth column,
+    # from the third layer of the third block. In other words the entire third layer of the third block
 
-# Finish Challenge 3 #
+
+
 
 
 # OVERWRITING #
@@ -146,6 +149,46 @@ names(l)
 l$string
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # CHALLENGE 4 #
 
 Lemuroidea <- list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
@@ -158,3 +201,90 @@ Strepsirhini <- list(Lemuroidea,Lorisoidea)
 Haplorhini <- list(Anthropoidea, Tarsioidea)
 Primates <- list(Haplorhini,Strepsirhini)
 Primates
+list(Primates)
+
+# Challenge 4 complete ##??
+
+
+
+df <- data.frame(firstName = c("Rick", "Steve", "Jimbo", "Cleetus", "Bubba"), community = c("Alexandria", "Saviors", "Hilltop", "Saviors", "Hilltop"),
+                 sex = c("M", "M", "F", "F", "F"), age = c(42, 40, 33, 28, 31))
+df
+
+df <- read.csv(file = "C:/Users/cradl/Desktop/random-people.txt", sep = ",", header = T, stringsAsFactors = F)
+head(df)
+str(df)
+
+df[, 3]
+str(df[,3])
+df[["name.last"]]
+df <- cbind(df, id = c(1:20))
+df <- cbind(df, school = c("UT", "UT", "A&M", "A&M", "UT", "Rice", "Texas Tech",
+                           "UT", "UT", "Texas Tech", "A&M", "UT", "Rice", "UT", "A&M", "Texas Tech",
+                           "A&M", "UT", "Texas Tech", "A&M"))
+head(df)
+str(df)
+
+new_df <- df[df$school == "UT", ]
+new_df
+df$school == "UT"
+new_df <- df[df$school == "UT" & df$gender == "female", ]
+new_df
+
+new_df <- df[df$school == "UT" | df$gender == "female", ]
+new_df
+
+new_df <- df[df$school == "UT", c("name.last", "name.first", "school") ]
+new_df
+
+new_df <- df[, c("name.last", "name.first", "school") ]
+new_df
+
+new_df <- df[, c(1, 4, 3) ]
+new_df
+
+new_df <- df[, -c(1, 2, 5:18) ]
+new_df
+
+
+
+## CHALLENGE 5 ##
+
+c5 <- matrix(data = c(3,0,1,23,1,2,33,1,1,42,0,1,41,0,2), nrow = 5, ncol = 3, byrow = TRUE)
+c5 <- as.data.frame(c5)
+c5$V2 <- as.logical(c5$V2)                    
+c5$V3 <- as.factor(c5$V3)                    
+str(c5)
+
+## CHALLENGE 5 COMPLETE ##
+
+
+library(data.table)
+dt <- data.table(firstName = c("Rick", "Negan", "Dwight", "Maggie", "Michonne"),
+                 community = c("Alexandria", "Saviors", "Saviors", "Hiltop", "Alexandria"), 
+                 sex = c("M", "M", "M", "F", "F"), age = c(42, 40, 33, 28, 31))
+dt                 
+str(dt)                 
+
+df <- data.frame(firstName = c("Rick", "Negan", "Dwight", "Maggie", "Michonne"),
+                   community = c("Alexandria", "Saviors", "Saviors", "Hiltop", "Alexandria"), 
+                   sex = c("M", "M", "M", "F", "F"), age = c(42, 40, 33, 28, 31))
+df
+str(df)
+
+dt[sex == "M"]
+df[df$sex == "M",]
+dt[1:2]
+df[1:2,]
+dt[, sex]
+str(dt[, sex])
+df[, c("sex")]
+str(df[, c("sex")])
+
+library(tibble)
+t <- tibble(firstName = c("Rick", "Negan", "Dwight", "Maggie", "Michonne"),
+            community = c("Alexandria", "Saviors", "Saviors", "Hiltop", "Alexandria"), 
+            sex = c("M", "M", "M", "F", "F"), age = c(42, 40, 33, 28, 31))
+t
+t[, "age"]
+class(t[, "age"])
