@@ -128,15 +128,15 @@ m
 
 # LISTS AND DATA FRAMES #
 
-s <- c("this", "is", "a", "vector", "of", "strings") # this is a vector of character strings
-m <- matrix(data = 1:40, nrow = 5, ncol = 8) # this is a matrix
-b <- FALSE # this is a boolean variable
+s <- c("this", "is", "a", "vector", "of", "strings") 
+m <- matrix(data = 1:40, nrow = 5, ncol = 8) 
+b <- FALSE
 l <- list(s,m,b)
 l
 
 # SUBSETTING #
 
-l[[2]]
+l[[3]]
 l[[2]][2,6]
 l[[2]][2,]
 l[[2]][,6]
@@ -147,47 +147,37 @@ str(l)
 names(l) <- c("string", "matrix", "logical")
 names(l)
 l$string
+l[[1]]
+l[["string"]]
+
+
+
+
+
+Lemuroidea <-list("cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+names(Lemuroidea) <-c("Strepsirhini")
+Lorisoidea <- list("Lorisidae", "Galagidae")
+names(Lorisoidea) <- c("Strepsirhini")
+Strepsirhini <- list(Lemuroidea, Lorisoidea)
+names(Strepsirhini) <- c("Primates")
+Catarrhini <- list("Cercopithecidae", "Hylobatidae", "Hominidae")
+names(Catarrhini)<-c("Anthropoidea")
+Platyrrhini <- list("Cebidae", "Atelidae", "Pitheciidae")
+names(Platyrrhini) <- C("Anthropoidea")
+Tarsioidea <- list("Tarsiidae")
+names(Tarsioidea) <- c("Anthropoidea")
+Anthropoidea <- list(Platyrrhini,Catarrhini)
+Haplorhini <- list(Anthropoidea,Tarsioidea)
+Primates <- list(Strepsirhini,Haplorhini)
+
+Primates
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+aaaaaa
 
 
 # CHALLENGE 4 #
@@ -204,8 +194,6 @@ Primates <- list(Haplorhini,Strepsirhini)
 Primates
 list(Primates)
 
-# Challenge 4 complete ##??
-
 
 
 df <- data.frame(firstName = c("Rick", "Steve", "Jimbo", "Cleetus", "Bubba"), community = c("Alexandria", "Saviors", "Hilltop", "Saviors", "Hilltop"),
@@ -215,6 +203,35 @@ df
 df <- read.csv(file = "C:/Users/cradl/Desktop/random-people.txt", sep = ",", header = T, stringsAsFactors = F)
 head(df)
 str(df)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 df[, 3]
 str(df[,3])
