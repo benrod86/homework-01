@@ -207,39 +207,6 @@ df <- data.frame(firstName = c("Rick", "Steve", "Jimbo", "Cleetus", "Bubba"), co
                  sex = c("M", "M", "F", "F", "F"), age = c(42, 40, 33, 28, 31))
 df
 
-df <- read.csv(file = "C:/Users/cradl/Desktop/random-people.txt", sep = ",", header = T, stringsAsFactors = F)
-head(df)
-str(df)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 df[, 3]
 str(df[,3])
 df[["name.last"]]
@@ -313,3 +280,12 @@ t <- tibble(firstName = c("Rick", "Negan", "Dwight", "Maggie", "Michonne"),
 t
 t[, "age"]
 class(t[, "age"])
+
+
+
+df <- read.csv(file = "C:/Users/cradl/Desktop/ANT388/random-people.txt", sep = ",", header = T, stringsAsFactors = F)
+head(df)
+str(df)
+
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.csv
+d
