@@ -282,10 +282,76 @@ t[, "age"]
 class(t[, "age"])
 
 
+a <- read.table(file = "C:/Users/cradl/Desktop/ANT388/Country-Data-2016.csv", sep = ",", header = T, stringsAsFactors = F)
 
-df <- read.csv(file = "C:/Users/cradl/Desktop/ANT388/random-people.txt", sep = ",", header = T, stringsAsFactors = F)
+df <- read.csv(file = "C:/Users/cradl/Desktop/ANT388/random-people.csv", sep = ",", header = T, stringsAsFactors = F)
 head(df)
 str(df)
+ 
 
-f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.csv
-d
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.csv"
+d <-  read.table(f, header = T, sep = ",", stringsAsFactors = F)
+head(d, 3)
+e <- read.csv(f, header = T, stringsAsFactors = F)
+head(e)
+
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.txt"
+d <- read.table(f, header = T, sep = "\t", stringsAsFactors = F, fill = T)
+head(d)
+
+library(readr)
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.txt"
+d <- read_tsv(f, col_names = T)
+head(d)
+class(d)
+
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.txt"
+read_delim(f, delim ="\t", col_names = T)
+
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.csv"
+read_csv(f, delim = ",", col_names = T)
+head(d)
+
+library(readxl)
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.xlsx"
+d <- read_excel(f, sheet = 1, col_names = T)
+head(d)
+str(d)
+
+library(XLConnect)
+library(XLConnectJars)
+library(rJava)
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.xlsx"
+d <- readWorksheetFromFile(f, sheet = 1, header = T)
+
+library(gdata)
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.xlsx"
+d <- read.xls(f, sheet = 1)
+
+
+library(curl)
+f <- curl("https://raw.githubusercontent.com/difiore/ADA-2019/master/CPDS-1960-2014-reduced.csv")
+d <- read.csv(f, header = T, sep = ",", stringsAsFactors = F)
+head(d)
+
+f <- curl("https://raw.githubusercontent.com/difiore/ADA-2019/master/CPDS-1960-2014-reduced.txt")
+d <- read.table(f, header = T, sep = "\t", stringsAsFactors = F)
+head(d)
+
+library(readr)
+f <- "https://raw.githubusercontent.com/difiore/ADA-2019/master/CPDS-1960-2014-reduced.csv"
+d <- read_csv(f, col_names = T)
+head(d)
+
+f <- "https://raw.githubusercontent.com/difiore/ADA-2019/master/CPDS-1960-2014-reduced.txt"
+d <- read_tsv(f, col_names = T)
+head(d)
+
+library(googlesheets)
+gs_auth()
+gs_ls()
+s <- gs_title("CPDS-1960-2014-reduced")
+gs_ws_ls(s)
+d <- gs_read(s)
+head(d)
+str(d)
