@@ -173,6 +173,8 @@ Primates <- list(Strepsirhini,Haplorhini)
 Primates
 
 
+Primates <- list(c("Haplorhini", "Strepsirhini"))
+
 
 
 
@@ -188,11 +190,16 @@ Tarsioidea <- list("Tarsiidae")
 Catarrhini <- list("Cercopithecidae", "Hylobatidae", "Hominidae")
 Platyrrhini <- list("Cebidae", "Atelidae", "Pitheciidae")
 Anthropoidea <- list(Platyrrhini,Catarrhini)
-Strepsirhini <- list(Lemuroidea,Lorisoidea)
+Strepsirhini <- list(Lemuroidea, Lorisoidea)
 Haplorhini <- list(Anthropoidea, Tarsioidea)
 Primates <- list(Haplorhini,Strepsirhini)
+names(Lemuroidea) <- c("Strepsirhini")
+names(Lorisoidea) <- c("Strepsirhini")
+names(Strepsirhini) <- c("Primates")
+names(Catarrhini)<- c("Anthropoidea")
+names(Platyrrhini) <- c("Anthropoidea")
+names(Tarsioidea) <- c("Anthropoidea")
 Primates
-list(Primates)
 
 
 
