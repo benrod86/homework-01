@@ -1,0 +1,47 @@
+---
+title: "rodwell-ben-homework-01"
+author: "Ben Rodwell"
+date: "February 5, 2019"
+output: html_document
+---
+
+
+# 1st Challenge
+
+Create vector of the first line of gettysburg address 
+```{r}
+gettysburg <- "Four score and seven years ago our fathers brought forth on this continent a new nation, cinceived in Liberty, and dedicated to the proposition that all men are created equal."
+```
+
+Split into 1 word strings
+```{r}
+library(stringr)
+gettysburgsplit <- str_split(gettysburg, " ", simplify = T)
+gettysburgsplit
+```
+
+Extract every third element 
+```{r}
+gettysburgsplit[seq(from = 1, to = 30, by = 3)]
+```
+
+Create vector that is every third element of gettysburg address first line 
+```{r}
+gettysburgsplit3rd <- gettysburgsplit[seq(from = 1, to = 30, by = 3)]
+gettysburgsplit3rd
+```
+
+Remove punctuation from same vector
+```{r}
+gettysburg3rdnopunctuation <- gsub("[[:punct:]]","",gettysburgsplit[seq(from = 1, to = 30, by = 3)])
+gettysburg3rdnopunctuation
+```
+
+
+
+# 2nd Challenge
+
+Extract columns 2, 3, and 6 from matrix
+```{r}
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = F)
+x <- m[,c(2,3,6)]
