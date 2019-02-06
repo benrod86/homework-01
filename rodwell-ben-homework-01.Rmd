@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-# First Challenge
+# 1st Challenge
 ## Create vector of the first line of gettysburg address 
 
 ```{r}
@@ -25,16 +25,66 @@ gettysburgsplit
 gettysburgsplit[seq(from = 1, to = 30, by = 3)]
 ```
 
-## create vector that is every third element of gettysburg address first line 
+## Create vector that is every third element of gettysburg address first line 
 ```{r}
 gettysburgsplit3rd <- gettysburgsplit[seq(from = 1, to = 30, by = 3)]
 gettysburgsplit3rd
 ```
 
-# Remove punctuation from same vector
+## Remove punctuation from same vector
 ```{r}
 gettysburg3rdnopunctuation <- gsub("[[:punct:]]","",gettysburgsplit[seq(from = 1, to = 30, by = 3)])
 gettysburg3rdnopunctuation
 ```
+
+
+
+# 2nd Challenge
+
+## Extract columns 2, 3, and 6 from matrix
+```{r}
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = F)
+x <- m[,c(2,3,6)]
+x
+```
+
+## Extract rows 6 through 8 from matrix
+```{r}
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = F)
+x <- m[c(6:8),]
+x
+```
+
+## Extract rows 2 through 6 of columns 2 through 9 from matrix
+```{r}
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = F)
+x <- m[c(2:6),c(2:9)]
+x
+```
+
+
+
+# 3rd Challenge
+
+## Construct 5x5x4x4 array with numbers in order from 400 to 100
+```{r}
+a <- array(400:1, dim = c(5,5,4,4))
+```
+
+## Pull out the value in the first row and first column of the first layer of the fourth block
+```{r}
+a[1,1,1,2]
+```
+
+## Pull out the the values in the second row and third column of the second layer of the each block
+```{r}
+a[2,3,2,]
+```
+
+## Pull out the values in the firstst to fifth row, and the first to fifth column, from the third layer of the third block. In other words the entire third layer of the third block
+```{r}
+a[1:5,1:5,3,3]
+```
+
 
 
