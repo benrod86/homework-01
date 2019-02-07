@@ -355,3 +355,8 @@ gs_ws_ls(s)
 d <- gs_read(s)
 head(d)
 str(d)
+
+
+
+
+
