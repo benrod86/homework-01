@@ -6,14 +6,6 @@ output: html_document
 ---
 
 
----
-title: "rodwell-bn-homework-01"
-author: "Ben Rodwell"
-date: "February 5, 2019"
-output: html_document
----
-
-
 # 1st Challenge
 
 Create vector of the first line of gettysburg address 
