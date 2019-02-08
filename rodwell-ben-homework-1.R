@@ -284,9 +284,7 @@ class(t[, "age"])
 
 a <- read.table(file = "C:/Users/cradl/Desktop/ANT388/Country-Data-2016.csv", sep = ",", header = T, stringsAsFactors = F)
 
-df <- read.csv(file = "C:/Users/cradl/Desktop/ANT388/random-people.csv", sep = ",", header = T, stringsAsFactors = F)
-head(df)
-str(df)
+
  
 
 f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.csv"
@@ -359,4 +357,71 @@ str(d)
 
 
 
+df <- read.csv(file = "C:/Users/cradl/Desktop/ANT388/random-people.csv", sep = ",", header = T, stringsAsFactors = F)
+head(df)
+str(df)
 
+
+head(df[10:11]) 
+head(df[, c(1:4,10,11)]) # pull out the specified columns
+str(df) 
+df[,4] # single column, returns a vector
+df[4,] # single row, returns a vector
+str(df[,4])
+df[[4]] # returns a vector essentially the same thing as aboove
+str(df[[4]])
+df$name.last
+str(df$name.last) # this again returns the exact same vector as above
+df[4] # this is fundamentally different as it is returning a data frame
+str(df[4])
+df["name.last"]
+str(df["name.last"]) # this is also returning a data frame, not a vector
+df <- cbind(df, id = 1:20)
+str(df)
+df <- cbind(df, school = c("UT", "UT", "A&M", "A&M", "UT", "Rice", "Texas Tech", 
+                  "UT", "UT", "Texas State", "A&M", "UT", "Rice", "UT", "A&M", "Texas Tech", "A&M", "UT", "Texas State", "A&M"))          
+str(df)
+df$school <- as.character(df$school)
+str(df)
+
+
+new_df <- df[df$school == "UT", ] # selects all the rows where "UT" is in school column
+new_df
+new_df2 <- df[df$school == "UT" & df$gender == "female", ]  # extract multiple columns
+new_df2
+new_df3 <- df[df$school == "UT" & df$gender == "!female", ] # Extract but with ! = NOT INCLUDED
+new_df3
+new_df4 <- df[df$school == "UT" | df$gender == "female", ] # Extract with | = AND operator
+new_df4
+new_df5 <- df[df$school == "UT", -c(1,2,5:18)] # Extract but neglect certain columns
+new_df5
+
+
+
+
+c5 <- matrix(data = c(3,0,1,23,1,2,33,1,1,42,0,1,41,0,2), nrow = 5, ncol = 3, byrow = TRUE)
+c5 <- as.data.frame(c5)
+c5$V2 <- as.logical(c5$V2)
+c5$V3 <- as.factor(c5$V3)
+str(c5)
+
+
+
+library(tibble)
+t <- tibble(firstName = c("Rick", "Negan", "Dwight", "Maggie", "Michonne"), 
+            community = c("Alexandria", "Saviors", "Saviors", "Hiltop", "Alexandria"), 
+            sex = c("M", "M", "M", "F", "F"), age = c(42, 40, 33, 28, 31))
+t
+
+
+df <- read.csv(file = "C:/Users/cradl/Desktop/ANT388/random-people.csv", sep = ",", header = T, stringsAsFactors = F)
+head(df)
+str(df)
+
+install.packages("readxl")
+library(readxl)
+
+
+f <- "C:/Users/cradl/Desktop/ANT388/CPDS-1960-2014-reduced.xlsx"
+d <- read_excel(f, sheet = 1, col_names = T)
+e <- read_excel(file.choose(), sheet = 1, col_manes = T)
